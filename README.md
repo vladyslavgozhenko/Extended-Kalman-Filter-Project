@@ -1,6 +1,6 @@
 # Extended Kalman Filter Project
 <p align='center'>
-<img src="https://github.com/wiwawo/Extended-Kalman-Filter-Project/Simulator.png" width="480" alt="lane lines" />
+<img src="https://github.com/wiwawo/Extended-Kalman-Filter-Project/src/Simulator.png" width="480" alt="lane lines" />
 </p>
 
 In this project I will utilize a kalman filter to estimate the state of a moving object of interest with noisy lidar and radar measurements. Passing the project requires obtaining RMSE values that are lower that the tolerance outlined in the project rubric.
