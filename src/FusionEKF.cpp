@@ -116,12 +116,12 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
      * Uses noise_ax = 9 and noise_ay = 9 for your Q matrix.
    */
    //computes the time elapsed between the current and previous measurements
-   float dt = (measurement_pack.timestamp_ - previous_timestamp_) / 1000000.0;	//dt - expressed in seconds
+   const float dt = (measurement_pack.timestamp_ - previous_timestamp_) / 1000000.0;	//dt - expressed in seconds
    previous_timestamp_ = measurement_pack.timestamp_;
 
-   float dt_2 = dt * dt;
-   float dt_3 = dt_2 * dt;
-   float dt_4 = dt_3 * dt;
+   const float dt_2 = dt * dt;
+   const float dt_3 = dt_2 * dt;
+   const float dt_4 = dt_3 * dt;
 
    //Modifies the F matrix so that the time is integrated
    ekf_.F_(0, 2) = dt;
@@ -155,10 +155,11 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
     //ekf_.x_ << measurement_pack.raw_measurements_[0], measurement_pack.raw_measurements_[1], measurement_pack.raw_measurements_[2], 0;
     ekf_.H_ = tools.CalculateJacobian(ekf_.x_);
     ekf_.R_ = R_radar_;
-    ekf_.Update(measurement_pack.raw_measurements_);;
+    ekf_.UpdateEKF(measurement_pack.raw_measurements_);;
   } else {
     // Laser updates
     ekf_.R_ = R_laser_;
+    ekf_.H_ = H_laser_;
     ekf_.Update(measurement_pack.raw_measurements_);
   }
 

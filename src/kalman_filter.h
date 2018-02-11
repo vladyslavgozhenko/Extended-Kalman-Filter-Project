@@ -64,6 +64,18 @@ public:
    */
   void UpdateEKF(const Eigen::VectorXd &z);
 
+  void NormalizeAngle(double& phi);
+  /**
+   * normalize the difference angle y(1) here to the interval [-pi,pi] in order
+   *  to ensure the filter's stability and accuracy.
+   */
+
+   void UpdateCommon(const Eigen::VectorXd& y);
+   /**
+    * refactors common code of Update and UpdateEKF functions
+    */
 };
+
+
 
 #endif /* KALMAN_FILTER_H_ */
