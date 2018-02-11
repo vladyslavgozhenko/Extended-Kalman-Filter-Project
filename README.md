@@ -3,7 +3,7 @@
 <img src="https://github.com/wiwawo/Extended-Kalman-Filter-Project/blob/master/src/Simulator.png" width="480" alt="simulator" />
 </p>
 
-In this project I will utilize a kalman filter to estimate the state of a moving object of interest with noisy lidar and radar measurements. Passing the project requires obtaining RMSE values that are lower that the tolerance outlined in the project rubric.
+In this project I will utilize a kalman filter to estimate the state of a moving object of interest with noisy lidar and radar measurements.
 
 This project involves the Term 2 Simulator which can be downloaded [here](https://github.com/udacity/self-driving-car-sim/releases)
 
